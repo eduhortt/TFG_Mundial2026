@@ -352,6 +352,7 @@ class Predictor:
     # ── MONTE CARLO ───────────────────────────────────────────────────────────
 
     def monte_carlo(self, n: int = 10_000) -> dict:
+        np.random.seed(42)  # Semilla fija para garantizar reproducibilidad (RNF-05)
         contadores: dict[str, dict[str, int]] = {
             pais: {'campeon': 0, 'finalista': 0, 'semifinalista': 0,
                    'cuartos': 0, 'octavos': 0, '16avos': 0}

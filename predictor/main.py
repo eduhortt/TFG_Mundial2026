@@ -354,18 +354,22 @@ def paso4_html():
     with open(PATH_HTML, encoding='utf-8') as f:
         html = f.read()
 
-    # Incrustar prediccion (DATOS_EJEMPLO)
     pred_str = json.dumps(datos_pred, ensure_ascii=False)
+
+    # Eliminar TODAS las ocurrencias de const DATOS_EJEMPLO = {...};
     html_nuevo = re.sub(
         r'const DATOS_EJEMPLO\s*=\s*\{.*?\};',
-        f'const DATOS_EJEMPLO = {pred_str};',
+        '',
         html, flags=re.DOTALL
     )
-    if html_nuevo == html:
-        print("  INFO: DATOS_EJEMPLO no encontrado, insertando...")
-        pos = html.find('async function cargarDatos')
-        if pos != -1:
-            html_nuevo = html[:pos] + f'const DATOS_EJEMPLO = {pred_str};\n\n' + html[pos:]
+
+    # Insertar UNA sola vez antes de async function cargarDatos
+    pos = html_nuevo.find('async function cargarDatos')
+    if pos != -1:
+        html_nuevo = html_nuevo[:pos] + f'const DATOS_EJEMPLO = {pred_str};\n\n' + html_nuevo[pos:]
+    else:
+        print("  ERROR: no se encontró async function cargarDatos")
+        return
 
     # Limpiar _selData anteriores y añadir nuevo
     MARKER = 'window._selData = {'
