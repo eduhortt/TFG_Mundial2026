@@ -18,7 +18,6 @@ CORRECCIONES_FOTOS = {
     'Ben Gannon-Doak': 'https://cdn.sofifa.net/players/266/815/26_120.png',
     'Marquinhos': 'https://cdn.sofifa.net/players/207/865/26_240.png',
     'Mason Greenwood': 'https://cdn.sofifa.net/players/246/147/26_240.png',
-    'Jhon Duran': 'https://img.a.transfermarkt.technology/portrait/header/649317-1772000650.png?lm=1',
-
+    'Jhon Duran': '',
 
 }
