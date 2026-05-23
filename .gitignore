@@ -1,0 +1,17 @@
+# Datos pesados
+predictor/data/fotos/
+predictor/data/*.json
+predictor/data/*.csv
+merge/data/*.csv
+merge/data/*.json
+scraper/data/
+scraper/*.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.db
+
+# VSCode
+.vscode/

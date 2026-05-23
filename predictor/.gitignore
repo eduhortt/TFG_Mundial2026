@@ -1,0 +1,23 @@
+# Datos pesados — se regeneran ejecutando main.py
+data/fotos/
+data/*.json
+data/*.csv
+
+# HTML con datos incrustados — se regenera con incrustar_json.py
+mundial2026.html
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Base de datos cache del scraper
+*.db
+
+# VSCode
+.vscode/
+
+# Scripts temporales
+verificar.py
+arreglar_fotos.py
+limpiar_html.py
